@@ -4,9 +4,12 @@ import { initializeApp, FirebaseApp } from 'firebase/app'
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  apiKey: "AIzaSyDRzJ7Qd8bRbPARUZrNmvjf-Mx09lpUCQI",
+  authDomain: "bitcent-538e9.firebaseapp.com",
+  projectId: "bitcent-538e9",
+  storageBucket: "bitcent-538e9.appspot.com",
+  messagingSenderId: "289503032955",
+  appId: "1:289503032955:web:bdd5e249ab6e3d2ff7d4de"
 }
 
 const app: FirebaseApp = initializeApp(firebaseConfig)

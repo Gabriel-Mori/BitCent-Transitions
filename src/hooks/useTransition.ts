@@ -3,7 +3,6 @@ import { Transition } from '@/logic/core/interface/TypeTransition'
 import { useCallback, useEffect, useState } from 'react'
 import services from "@/logic/core/services";
 import AuthenticationContext from '@/contexts/UserAuthentication';
-import TransitionFalsy from '@/data/constants/TransitionFalsy';
 
 
 export type displayType = 'list' | 'grid'
@@ -11,7 +10,7 @@ export type displayType = 'list' | 'grid'
 export function useTransaction() {
   const { user } = useContext(AuthenticationContext)
   const [date, setDate] = useState<Date>(new Date())
-  const [transitions, setTransitions] = useState<Transition[]>(TransitionFalsy)
+  const [transitions, setTransitions] = useState<Transition[]>([])
   const [transition, setTransition] = useState<Transition | null>(null)
   const [displayType, setDisplayType] = useState<displayType>('list')
 

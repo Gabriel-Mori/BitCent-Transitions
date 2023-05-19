@@ -30,23 +30,17 @@ export default function Finance() {
       <div className="flex justify-between">
         <DateSelect date={date} changeDate={setDate} />
 
+
         <div className="flex gap-5">
           <Button
-            className="bg-blue-500 w-56"
+            className="bg-gray-500 mobile-search  "
             leftIcon={<IconPlus />}
             onClick={() => setTransition(transitionEmpty)}
           >
             Nova Transação
           </Button>
-
-          <SegmentedControl
-            data={[
-              { label: <IconList />, value: 'list' },
-              { label: <IconLayoutGrid />, value: 'grid' },
-            ]}
-            onChange={(type) => setDisplayType(type as displayType)}
-          />
         </div>
+
       </div>
     )
   }
@@ -61,19 +55,34 @@ export default function Finance() {
 
   return (
     <Page>
+
       <Header />
       <Content className="gap-5">
+
         {renderButtons()}
+        <div>
+          <SegmentedControl
+            data={[
+              { label: <IconList />, value: 'list' },
+              { label: <IconLayoutGrid />, value: 'grid' },
+            ]}
+            onChange={(type) => setDisplayType(type as displayType)}
+          />
+        </div>
         {transition ? (
+
           <Form
             transition={transition}
             cancel={() => setTransition(null)}
             save={save}
             delete={deleted}
           />
+
         ) : transitions.length > 0 ? (
           renderDisplay()
+
         ) : (
+
           <NotFound>
             Nenhuma transação encontrada
           </NotFound>
@@ -81,6 +90,19 @@ export default function Finance() {
 
 
       </Content>
+      <style jsx>
+        {`
+             @media screen and (max-width: 390px) {
+              .mobile-search {
+               margin-left: 3px;
+               background-color: red;
+              }
+             }
+        
+            `}
+      </style>
     </Page>
+
+
   )
 }
